@@ -28,7 +28,10 @@ dependencies {
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
 	implementation 'com.sap.cloud.sdk.cloudplatform:connectivity-destination-service:5.13.0'
-	implementation 'com.sap.cloud.sdk.cloudplatform:connectivity-apache-httpclient5:5.13.0'
+	implementation 'com.sap.cloud.sdk.cloudplatform:connectivity-apache-httpclient5:5.13.0', {
+		exclude group: 'org.apache.httpcomponents.client5', module: 'httpclient5'
+	}
+	implementation 'org.apache.httpcomponents.client5:httpclient5:5.4'
 }
 
 bootRun {
